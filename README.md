@@ -131,18 +131,51 @@ solo yo rw: chmod 600 <FileName.txt>
 chown
 
 #comprimir
-tar -czvf <directory.tar.gz> <FileName.txt>
+tar -czvf <archive.tar.gz> <FileName.txt>
+    -c is creating and archive.
+    -z is using gzip compression.
+    -v is providing details of the files that have been archived.
+    -f is creating an archive with the name 'logs_archive.tar.gz' as supplied in the command above.
+
+remove files: tar -czvf <archive.tar.gz> * --remove-files
+view the contents of an archive: tar -tvf <archive.tar.gz>
+
+search in compressed files: zgrep -Hna 'string-to-search' <archive.tar.gz>
+    -H lists the file name that contains the match.
+    -n displays the line number that contains the matched string.
+    -a treats all files as text files. 
 
 #extraer
 mkdir <directory>
-tar -xzvf <directory.tar.gz> -C <directory>
+tar -xzvf <archive.tar.gz> -C <directory>
+    -x is extracting and archive.
+    -z specifies that the archive is gzip.
+    -v is providing details of the files that have been archived.
+    -f is extracting from the archive named 'logs_archive.tar.gz'.
 
 # awk
+awk '{print $0}' information.txt
+line-number count NR: awk '{print NR,$0}' information.txt
+more than one column: awk '{print $1, $4}' information.txt
+specific lines of a column: awk '{print $1}' information.txt | head -1
 awk -F "," '{print $1}' nombres.csv
 
 ```
 
-# Python
-```
+# Python open()
+```python
+To save a variable to a `.txt` file on Linux using Python, you can use the built-in `open()` function along with the `write()` method. Here's a basic example:
+
+### Example:
+# Variable you want to save
+my_variable = "Hello, this is the content I want to save."
+
+# Open a text file in write mode and save the variable
+with open("output.txt", "w") as file:
+    file.write(my_variable)
+
+This will create a file named `output.txt` in the same directory where the script is run, and write the contents of `my_variable` into it.
+
+If your variable is not a string (e.g., a list or dictionary), you should convert it first using `str()` or `json`:
 
 ```
