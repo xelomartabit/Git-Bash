@@ -71,6 +71,21 @@ git merge upstream/main
 
 # push
 git push origin <branch>
+
+#View commit history
+git log
+
+#Check current branches
+git branch
+
+#Switch branches
+git checkout new-feature
+# Or with modern Git:
+git switch new-feature
+
+#Merge branches
+git checkout main
+git merge new-feature
 ```
 
 ## Bash
@@ -126,6 +141,34 @@ todos los archivos de un tipo: find *.txt
 chmod
 numeros:
 solo yo rw: chmod 600 <FileName.txt>
+# Give user read and write
+chmod u+rw filename
+
+# Give group read and write
+chmod g+rw filename
+
+# Give others read and write
+chmod o+rw filename
+
+# Give everyone read and write
+chmod a+rw filename
+# Remove user read and write
+chmod u-rw filename
+
+# Remove group read and write
+chmod g-rw filename
+
+# Remove others read and write
+chmod o-rw filename
+
+# Remove all read and write
+chmod a-rw filename
+
+# Set user read/write, group read-only, others no access
+chmod u=rw,g=r,o= filename
+
+# Set user read-only, remove all other access
+chmod u=r,g=,o= filename
 
 # Ver permisos
 chown
